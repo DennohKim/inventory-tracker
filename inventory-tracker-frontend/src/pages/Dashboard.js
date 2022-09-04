@@ -8,7 +8,7 @@ import { TbBuildingStore } from "react-icons/tb";
 import { useStateContext } from "../context/ContextProvider";
 
 const Dashboard = () => {
-  const { activeMenu, land, residential, commercial } = useStateContext();
+  const { activeMenu, clients, businessEntities, printers, computers, manufacturers } = useStateContext();
 
   return (
     <>
@@ -34,13 +34,13 @@ const Dashboard = () => {
         >
           <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
             <Navbar />
-            <h1 className="px-12 mx-auto font-bold ">Comparables</h1>
+            {/* <h1 className="px-12 mx-auto font-bold "></h1> */}
 
             <div className="px-12 mx-auto my-4 grid grid-cols-3 gap-8">
               <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
                 <div>
-                  <p className="pb-3 text-gray-600">Land</p>
-                  <p className="font-bold text-4xl ">{land.length}</p>
+                  <p className="pb-3 text-gray-600">Clients</p>
+                  <p className="font-bold text-4xl ">{clients.length}</p>
                 </div>
                 <div className="w-2/6" >
                   <BiLandscape className="w-full fill-slate-600 hover:fill-white group-hover:stroke-white" size={40}/>
@@ -48,8 +48,8 @@ const Dashboard = () => {
               </div>
               <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
                 <div>
-                  <p className="pb-3 text-gray-600">Residential</p>
-                  <p className="font-bold text-4xl">{residential.length}</p>
+                  <p className="pb-3 text-gray-600">Business Entities</p>
+                  <p className="font-bold text-4xl">{businessEntities.length}</p>
                 </div>
                 <div className="w-2/6">
                   <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />
@@ -57,11 +57,29 @@ const Dashboard = () => {
               </div>
               <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
                 <div>
-                  <p className="pb-3 text-gray-600">Commercial</p>
-                  <p className="font-bold text-4xl">{commercial.length}</p>
+                  <p className="pb-3 text-gray-600">Printers</p>
+                  <p className="font-bold text-4xl">{printers.length}</p>
                 </div>
                 <div  className="w-2/6" >
                   <TbBuildingStore className="w-full outline-slate-200 " size={40}/>
+                </div>
+              </div>
+              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+                <div>
+                  <p className="pb-3 text-gray-600">Computers</p>
+                  <p className="font-bold text-4xl">{computers.length}</p>
+                </div>
+                <div className="w-2/6">
+                  <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />
+                </div>
+              </div>
+              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+                <div>
+                  <p className="pb-3 text-gray-600">Manufacturers</p>
+                  <p className="font-bold text-4xl">{manufacturers.length}</p>
+                </div>
+                <div className="w-2/6">
+                  <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />
                 </div>
               </div>
             </div>
