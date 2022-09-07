@@ -1,6 +1,6 @@
-class CreateBusinessEntities < ActiveRecord::Migration[6.1]
+class CreateEnterprises < ActiveRecord::Migration[6.1]
   def change
-    create_table :business_entities do |t|
+    create_table :enterprises do |t|
       t.string :business_name
       t.string :address
       t.string :physical_location

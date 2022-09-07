@@ -1,4 +1,4 @@
 class Manufacturer < ActiveRecord::Base
     has_many :printers
-    has_many :business_entities, through: :printers
+    has_many :enterprises, through: :printers
 end

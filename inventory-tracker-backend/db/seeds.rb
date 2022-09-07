@@ -1,15 +1,15 @@
 puts "🌱 Seeding data..."
 
-puts "Creating businesses..."
-ufanisi = BusinessEntity.create(business_name: "Ufanisi SACCO", address: "23-00100", physical_location:"Ufanisi Building, Kawangware", phone: "0712 345 678", email:"info@ufanisi.com")
+puts "Creating enterprises..."
+ufanisi = Enterprise.create(business_name: "Ufanisi SACCO", address: "23-00100", physical_location:"Ufanisi Building, Kawangware", phone: "0712 345 678", email:"info@ufanisi.com")
 
-cooperative = BusinessEntity.create(business_name: "Cooperative University", address: "456-00100", physical_location:"Karen", phone: "0701 235 876", email:"info@cooperative.com")
+cooperative = Enterprise.create(business_name: "Cooperative University", address: "456-00100", physical_location:"Karen", phone: "0701 235 876", email:"info@cooperative.com")
 
-cannonical = BusinessEntity.create(business_name: "Cannonical", address: "78-00100", physical_location:"Unga House Westlands", phone: "0723 890 456", email:"tech@cannonical.com")
+cannonical = Enterprise.create(business_name: "Cannonical", address: "78-00100", physical_location:"Unga House Westlands", phone: "0723 890 456", email:"tech@cannonical.com")
 
-mercycorps = BusinessEntity.create(business_name: "Mercy Corps Kenya", address: "678-00100", physical_location:"Upperhill", phone: "0789 837 837", email:"info@mercycorps.org")
+mercycorps = Enterprise.create(business_name: "Mercy Corps Kenya", address: "678-00100", physical_location:"Upperhill", phone: "0789 837 837", email:"info@mercycorps.org")
 
-knhcr = BusinessEntity.create(business_name: "KNHCR", address: "89-00100", physical_location:"Gigiri", phone: "0721 121 121", email:"info@knhcr.org")
+knhcr = Enterprise.create(business_name: "KNHCR", address: "89-00100", physical_location:"Gigiri", phone: "0721 121 121", email:"info@knhcr.org")
 
 puts "Creating manufacturers..."
 epson = Manufacturer.create(company_name: "Epson")
@@ -22,18 +22,18 @@ puts "Creating Printers..."
 
 # ***************************************************************
 # * A printer belongs to a manufacturer *
-# * and a printer belongs to a company.                         *
+# * and a printer belongs to an enterprise *
 # ***************************************************************
 # Create printers Here
-laserjet = Printer.create(model: "Laserjet MFP M283fdw", lease_terms: 2, payment_per_month: 2000, purchase_price: 94000, condition: "Good", business_entity_id: ufanisi.id , manufacturer_id: hp.id )
+laserjet = Printer.create(model: "Laserjet MFP M283fdw", lease_terms: 2, payment_per_month: 2000, purchase_price: 94000, condition: "Good", enterprise_id: ufanisi.id , manufacturer_id: hp.id )
 
-epsonl850 = Printer.create(model: "Epson L850 ", lease_terms: 3, payment_per_month: 4000, purchase_price: 80000, condition: "Good", business_entity_id: cooperative.id , manufacturer_id: epson.id)
+epsonl850 = Printer.create(model: "Epson L850 ", lease_terms: 3, payment_per_month: 4000, purchase_price: 80000, condition: "Good", enterprise_id: cooperative.id , manufacturer_id: epson.id)
 
-km2560 = Printer.create(model: "Kyocera KM- 2560", lease_terms: 5, payment_per_month: 1500, purchase_price: 90000, condition: "Good", business_entity_id: cannonical.id , manufacturer_id: kyocera.id )
+km2560 = Printer.create(model: "Kyocera KM- 2560", lease_terms: 5, payment_per_month: 1500, purchase_price: 90000, condition: "Good", enterprise_id: cannonical.id , manufacturer_id: kyocera.id )
 
-canon = Printer.create(model: "Canon G6040 duplex", lease_terms: 2, payment_per_month: 2500, purchase_price: 134900, condition: "Good", business_entity_id: mercycorps.id , manufacturer_id: panasonic.id)
+canon = Printer.create(model: "Canon G6040 duplex", lease_terms: 2, payment_per_month: 2500, purchase_price: 134900, condition: "Good", enterprise_id: mercycorps.id , manufacturer_id: panasonic.id)
 
-dellinkjet = Printer.create(model: "All in one inkjet", lease_terms: 4, payment_per_month: 4000, purchase_price: 124000, condition: "Good", business_entity_id: knhcr.id , manufacturer_id: dell.id)
+dellinkjet = Printer.create(model: "All in one inkjet", lease_terms: 4, payment_per_month: 4000, purchase_price: 124000, condition: "Good", enterprise_id: knhcr.id , manufacturer_id: dell.id)
 
 
 puts "Creating clients..."

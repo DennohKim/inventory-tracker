@@ -6,7 +6,7 @@ class CreatePrinters < ActiveRecord::Migration[6.1]
       t.integer :payment_per_month
       t.integer :purchase_price
       t.string :condition
-      t.integer :business_entity_id
+      t.integer :enterprise_id
       t.integer :manufacturer_id
       t.timestamps
 

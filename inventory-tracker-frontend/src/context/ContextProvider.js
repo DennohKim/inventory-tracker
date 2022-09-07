@@ -29,7 +29,7 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     fetch(enterprisesUrl)
       .then((res) => res.json())
-      .then((business) => setBusinessEntities(business));
+      .then((business) => setEnterprises(business));
   }, []);
 
   useEffect(() => {
