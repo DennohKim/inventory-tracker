@@ -1,13 +1,11 @@
 import React from 'react';
-import ClientTable from '../components/clients/ClientTable';
-// import ClientTableRow from '../components/clients/ClientTableRow';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
 import { useStateContext } from "../context/ContextProvider";
 
 
-const Clients = () => {
+const Enterprise = () => {
   const { activeMenu } = useStateContext();
 
   return (
@@ -34,9 +32,6 @@ const Clients = () => {
           <Navbar />
           <div>
 
-      
-          <ClientTable/>
-
           </div>
         </div>
       </div>    
@@ -44,4 +39,4 @@ const Clients = () => {
   );
 }
 
-export default Clients;
+export default Enterprise;

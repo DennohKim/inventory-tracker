@@ -37,11 +37,11 @@ dellinkjet = Printer.create(model: "All in one inkjet", lease_terms: 4, payment_
 
 
 puts "Creating clients..."
-dennis = Client.create(name: "Dennis Kimathi")
-charles = Client.create(name: "Charles xavier")
-luka = Client.create(name: "Luka Modric")
-jordan = Client.create(name: "Jordan Peterson")
-joel = Client.create(name: "Joel Matip")
+dennis = Client.create(name: "Dennis Kimathi", location: "Wanye Close", phone: 254712345678, email: "dk38@gmail.com")
+charles = Client.create(name: "Charles xavier", location: "Kinyanjui 1500", phone: 254702435078, email: "charles009@gmail.com")
+luka = Client.create(name: "Luka Modric", location: "Kenyatta Avenue", phone: 254711132600, email: "lukamodric@hotmail.com")
+jordan = Client.create(name: "Jordan Peterson", location: "Kimberley Way 105", phone: 254745679543, email: "jordanp@gmail.com")
+joel = Client.create(name: "Joel Matip", location: "123 Main St.", phone: 254734435512, email: "jmatip@hotmail.com")
 
 puts "Creating computers..."
 dell3500 = Computer.create(model: "Dell Vostro 3500 ", core: "i5", disk_space:"256 SSD", ram: "8GB", lease_terms: 2, payment_per_month: 2000, purchase_price: 6000, condition: "New" , client_id: dennis.id)

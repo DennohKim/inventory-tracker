@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 2022_09_03_082916) do
     t.string "location"
     t.integer "phone"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "computers", force: :cascade do |t|

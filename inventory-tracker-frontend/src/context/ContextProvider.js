@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const clientsUrl = "";
+  const clientsUrl = "http://localhost:9292/clients";
   const businessEntitiesUrl = "";
   const computersUrl = "";
   const printersUrl = "";
@@ -16,16 +16,18 @@ export const ContextProvider = ({ children }) => {
   const [manufacturers, setManufacturers] = useState([]);
   const [activeMenu, setActiveMenu] = useState(true);
   const [screenSize, setScreenSize] = useState(undefined);
-  const [search, setSearch ] = useState("");
+  const [search, setSearch] = useState("");
+  const [editClientId, setEditClientId] = useState(null);
 
   useEffect(() => {
     fetch(clientsUrl)
       .then((res) => res.json())
-      .then((clients) => setClients(clients));
+      .then((clients) => setClients(clients))
+      .catch(e=>console.log(e));
   }, []);
-
+  
   useEffect(() => {
-    fetch(businessEntitiesUrl )
+    fetch(businessEntitiesUrl)
       .then((res) => res.json())
       .then((business) => setBusinessEntities(business));
   }, []);
@@ -48,6 +50,8 @@ export const ContextProvider = ({ children }) => {
       .then((manufacturer) => setManufacturers(manufacturer));
   }, []);
 
+  const client = clients.map((client) => client.id)
+
   return (
     <StateContext.Provider
       value={{
@@ -55,6 +59,12 @@ export const ContextProvider = ({ children }) => {
         setActiveMenu,
         screenSize,
         setScreenSize,
+        clientsUrl,
+        businessEntitiesUrl,
+        computersUrl,
+        printersUrl,
+        manufacturersUrl,
+        client,
         clients,
         setClients,
         businessEntities,
@@ -65,9 +75,10 @@ export const ContextProvider = ({ children }) => {
         setComputers,
         manufacturers,
         setManufacturers,
-        search,        
-        setSearch
-       
+        search,
+        setSearch,
+        editClientId,
+        setEditClientId
       }}
     >
       {children}

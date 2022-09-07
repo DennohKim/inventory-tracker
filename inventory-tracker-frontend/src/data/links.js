@@ -1,6 +1,6 @@
 import { BiPrinter } from "react-icons/bi";
 import { BsDistributeVertical } from "react-icons/bs";
-import { MdOutlineDashboard, MdComputer,  } from "react-icons/md";
+import { MdOutlineDashboard, MdComputer, MdOutlineBusinessCenter } from "react-icons/md";
 
 
 
@@ -12,6 +12,20 @@ export const links = [
           name: 'Dashboard',
           icon: <MdOutlineDashboard />,
         },
+      ],
+    },
+
+    {
+      title: 'Partners',
+      links: [
+        {
+          name: 'Clients',
+          icon: <MdComputer  />,
+        },
+        {
+          name: 'Enterprise',
+          icon: <MdOutlineBusinessCenter />,
+        }
       ],
     },
   

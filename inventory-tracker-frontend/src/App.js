@@ -7,7 +7,7 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import { AuthContextProvider } from "./context/AuthContext";
 import Clients from "./pages/Clients";
-import BusinessEntities from "./pages/BusinessEntities";
+import Enterprise from "./pages/Enterprise";
 import Computers from "./pages/Computers";
 import Manufacturers from "./pages/Manufacturers";
 import Printers from "./pages/Printers";
@@ -32,7 +32,7 @@ function App() {
               }
             ></Route>
             <Route path="/clients" element={<Clients />}></Route>
-            <Route path="/businessentities" element={<BusinessEntities />}></Route>
+            <Route path="/Enterprise" element={<Enterprise />}></Route>
             <Route path="/computers" element={<Computers />}></Route>
             <Route path="/manufacturers" element={<Manufacturers />}></Route>
             <Route path="/printers" element={<Printers />}></Route>
