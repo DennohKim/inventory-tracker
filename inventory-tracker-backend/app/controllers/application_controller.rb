@@ -135,8 +135,7 @@ class ApplicationController < Sinatra::Base
 
   post "/manufacturers" do
     new_manufacturer = Manufacturer.create(
-      body: params[:body],
-      username: params[:username],
+      company_name: params[:company_name],
 
     )
 
@@ -145,7 +144,7 @@ class ApplicationController < Sinatra::Base
 
   patch "/manufacturers/:id" do
     manufacturer = Manufacturer.find(params[:id])
-    manufacturer.update(body: params[:body])
+    manufacturer.update(company_name: params[:company_name],)
     manufacturer.to_json
   end
 

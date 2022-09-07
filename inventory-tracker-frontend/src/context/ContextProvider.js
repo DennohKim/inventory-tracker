@@ -7,7 +7,7 @@ export const ContextProvider = ({ children }) => {
   const enterprisesUrl = "http://localhost:9292/enterprises";
   const computersUrl = "";
   const printersUrl = "";
-  const manufacturersUrl = "";
+  const manufacturersUrl = "http://localhost:9292/manufacturers";
 
   const [clients, setClients] = useState([]);
   const [enterprises, setEnterprises] = useState([]);
@@ -19,6 +19,10 @@ export const ContextProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [editClientId, setEditClientId] = useState(null);
   const [editEnterpriseId, setEditEnterpriseId] = useState(null);
+  const [editManufacturerId, setEditManufacturerId] = useState(null);
+  const [editComputerId, setEditComputerId] = useState(null);
+  const [editPrinterId, setEditPrinterId] = useState(null);
+  
 
   useEffect(() => {
     fetch(clientsUrl)
@@ -79,7 +83,13 @@ export const ContextProvider = ({ children }) => {
         editClientId,
         setEditClientId,
         editEnterpriseId,
-        setEditEnterpriseId
+        setEditEnterpriseId,
+        editManufacturerId,
+        setEditManufacturerId,
+        editComputerId,
+        setEditComputerId,
+        editPrinterId,
+        setEditPrinterId
 
       }}
     >

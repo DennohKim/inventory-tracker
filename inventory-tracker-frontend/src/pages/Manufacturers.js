@@ -1,4 +1,5 @@
 import React from 'react';
+import ManufacturerTable from '../components/manufacturers/ManufacturerTable';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
@@ -31,7 +32,7 @@ const Manufacturers = () => {
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
           <Navbar />
           <div>
-
+            <ManufacturerTable />
           </div>
         </div>
       </div>    
