@@ -90,32 +90,41 @@ class ApplicationController < Sinatra::Base
     computer.to_json
   end
 
-  #BUSINESS ENTITIES
-  get "/business_entities" do
-    business_entities = BusinessEntity.all
-    business_entities.to_json
+  #ENTERPRISES
+  get "/enterprises" do
+    enterprises = Enterprise.all
+    enterprises.to_json
   end
 
-  post "/business_entities" do
-    new_business_entities = BusinessEntity.create(
-      body: params[:body],
-      username: params[:username],
+  post "/enterprises" do
+    enterprises = Enterprise.create(
+      business_name: params[:business_name],
+      address: params[:address],
+      physical_location: params[:physical_location],
+      phone: params[:phone],
+      email: params[:email],
 
     )
 
-    new_business_entities.to_json
+    enterprises.to_json
   end
 
-  patch "/business_entities/:id" do
-    business_entities = BusinessEntity.find(params[:id])
-    business_entities.update(body: params[:body])
-    business_entities.to_json
+  patch "/enterprises/:id" do
+    enterprises = Enterprise.find(params[:id])
+    enterprises.update(
+      business_name: params[:business_name],
+      address: params[:address],
+      physical_location: params[:physical_location],
+      phone: params[:phone],
+      email: params[:email],
+    )
+    enterprises.to_json
   end
 
-  delete "/business_entities/:id" do
-    business_entity = BusinessEntity.find(params[:id])
-    business_entity.destroy
-    business_entity.to_json
+  delete "/enterprises/:id" do
+    enterprise = Enterprise.find(params[:id])
+    enterprise.destroy
+    enterprise.to_json
   end
 
   #MANUFACTURERS
