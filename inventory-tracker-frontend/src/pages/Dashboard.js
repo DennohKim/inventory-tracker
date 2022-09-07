@@ -8,7 +8,7 @@ import { TbBuildingStore } from "react-icons/tb";
 import { useStateContext } from "../context/ContextProvider";
 
 const Dashboard = () => {
-  const { activeMenu, clients, businessEntities, printers, computers, manufacturers } = useStateContext();
+  const { activeMenu, clients, enterprises, printers, computers, manufacturers } = useStateContext();
 
   return (
     <>
@@ -48,8 +48,8 @@ const Dashboard = () => {
               </div>
               <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
                 <div>
-                  <p className="pb-3 text-gray-600">Business Entities</p>
-                  <p className="font-bold text-4xl">{businessEntities.length}</p>
+                  <p className="pb-3 text-gray-600">Enterprises</p>
+                  <p className="font-bold text-4xl">{enterprises.length}</p>
                 </div>
                 <div className="w-2/6">
                   <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />

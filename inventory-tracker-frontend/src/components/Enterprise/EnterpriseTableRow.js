@@ -4,7 +4,7 @@ import EnterpriseReadOnlyRow from "./EnterpriseReadOnlyRow";
 import EnterpriseEditableRow from "./EnterpriseEditableRow";
 
 const EnterpriseTableRow = () => {
-  const { Enterprises, setEnterprises, editEnterpriseId, setEditEnterpriseId, EnterprisesUrl } =
+  const { enterprises, setEnterprises, editEnterpriseId, setEditEnterpriseId, enterprisesUrl } =
     useStateContext();
   
     
@@ -12,21 +12,23 @@ const EnterpriseTableRow = () => {
 
   const [editFormData, setEditFormData] = useState({
     id: "",
-    name: "",
-    location: "",
+    business_name: "",
+    address: "",
+    physical_location: "",
     phone: "",
     email: "",
   });
 
-  const handleEditClick = (event, Enterprise) => {
+  const handleEditClick = (event, enterprise) => {
     event.preventDefault();
-    setEditEnterpriseId(Enterprise.id);
+    setEditEnterpriseId(enterprise.id);
 
     const formValues = {
-      name: Enterprise.name,
-      location: Enterprise.location,
-      phone: Enterprise.phone,
-      email: Enterprise.email,
+      business_name: enterprise.business_name,
+      address: enterprise.address,
+      physical_location: enterprise.physical_location,
+      phone: enterprise.phone,
+      email: enterprise.email,
     };
     setEditFormData(formValues);
   };
@@ -36,11 +38,11 @@ const EnterpriseTableRow = () => {
   };
 
   function handleUpdateFormData(formValues) {
-    const updatedFormValues = Enterprises.map((Enterprise) => {
-      if(Enterprise.id === formValues.id) {
+    const updatedFormValues = enterprises.map((enterprise) => {
+      if(enterprise.id === formValues.id) {
         return formValues;
       } else {
-        return Enterprise;
+        return enterprise;
       }
     })
     setEnterprises(updatedFormValues)
@@ -50,15 +52,16 @@ const EnterpriseTableRow = () => {
     e.preventDefault();
 
     const editEnterpriseForm = { 
-      name: editFormData.name,
-      location: editFormData.location,
+      business_name: editFormData.business_name,
+      address: editFormData.address,
+      physical_location: editFormData.physical_location,
       phone: editFormData.phone,
       email: editFormData.email}
   
     const handleUpdateFetch = () => {
-      Enterprises.map((Enterprise) => {
+      enterprises.map((enterprise) => {
         return (
-          fetch(`${EnterprisesUrl}/${Enterprise.id}`, {
+          fetch(`${enterprisesUrl}/${enterprise.id}`, {
             method: 'PATCH',
             headers: {
               "Content-Type": "application/json",
@@ -90,28 +93,27 @@ const EnterpriseTableRow = () => {
                   <thead>
                     <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                       <th className="py-3 px-6 text-left">Id</th>
-                      <th className="py-3 px-6 text-left">Full name</th>
-                      <th className="py-3 px-6 text-left">Location</th>
+                      <th className="py-3 px-6 text-left">Business name</th>
+                      <th className="py-3 px-6 text-left">Address</th>
+                      <th className="py-3 px-6 text-center">Physical Location</th>
                       <th className="py-3 px-6 text-center">Phone</th>
                       <th className="py-3 px-6 text-center">Email</th>
-                      {/* <th className="py-3 px-6 text-center">Created at</th>
-                    <th className="py-3 px-6 text-center">Updated at</th> */}
                       <th className="py-3 px-6 text-center">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="text-gray-600 text-sm font-light">
-                    {Enterprises.map((Enterprise) => (
+                    {enterprises.map((enterprise) => (
                       <>
-                        {editEnterpriseId === Enterprise.id ? (
+                        {editEnterpriseId === enterprise.id ? (
                           <EnterpriseEditableRow
-                            key={Enterprise.id}
+                            key={enterprise.id}
                             editFormData={editFormData}
                             setEditFormData={setEditFormData}
                             handleCancelClick={handleCancelClick}
                           />
                         ) : (
                           <EnterpriseReadOnlyRow
-                            Enterprise={Enterprise}
+                            enterprise={enterprise}
                             handleEditClick={handleEditClick}
                             
                           />

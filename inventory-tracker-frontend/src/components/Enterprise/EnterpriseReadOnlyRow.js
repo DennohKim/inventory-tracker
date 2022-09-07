@@ -3,19 +3,19 @@ import { useStateContext } from "../../context/ContextProvider";
 import { BiEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const EnterpriseReadOnlyRow = ({ Enterprise, handleEditClick}) => {
-  const { Enterprises,setEnterprises, EnterprisesUrl} = useStateContext();
+const EnterpriseReadOnlyRow = ({ enterprise, handleEditClick}) => {
+  const { enterprises,setEnterprises, enterprisesUrl} = useStateContext();
 
-  const {id, name, location, phone, email} = Enterprise;
+  const {id, business_name, address, physical_location, phone, email} = enterprise;
 
   function handleEnterpriseDelete(id){
 
-    const updatedEnterprises = Enterprises.filter((Enterprise) => Enterprise.id !== id);
+    const updatedEnterprises = enterprises.filter((enterprise) => enterprise.id !== id);
     setEnterprises(updatedEnterprises);
   }
 
   function handleDeleteClick(){
-    fetch(`${EnterprisesUrl}/${id}`, {
+    fetch(`${enterprisesUrl}/${id}`, {
       method: 'DELETE'
 
     })
@@ -37,13 +37,19 @@ const EnterpriseReadOnlyRow = ({ Enterprise, handleEditClick}) => {
         <td className="py-3 px-2 text-left">
           <div className="flex items-center">
             <div className="mr-2"></div>
-            <span>{name}</span>
+            <span>{business_name}</span>
           </div>
         </td>
         <td className="py-3 px-2 text-left">
           <div className="flex items-center">
             <div className="mr-2"></div>
-            <span>{location}</span>
+            <span>{address}</span>
+          </div>
+        </td>
+        <td className="py-3 px-2 text-left">
+          <div className="flex items-center">
+            <div className="mr-2"></div>
+            <span>{physical_location}</span>
           </div>
         </td>
         <td className="py-3 px-2 text-left">
@@ -78,7 +84,7 @@ const EnterpriseReadOnlyRow = ({ Enterprise, handleEditClick}) => {
         <td className="py-3 px-2 text-center">
           <div className="flex item-center justify-center">
             <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
-              <BiEdit onClick={(event) => handleEditClick(event, Enterprise)} />
+              <BiEdit onClick={(event) => handleEditClick(event, enterprise)} />
             </div>
             <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
               <AiOutlineDelete onClick={handleDeleteClick} />

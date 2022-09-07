@@ -25,9 +25,9 @@ const EnterpriseEditableRow = ({
               type="text"
               required="required"
               placeholder="Enter a name..."
-              name="name"
+              name="business_name"
               size="10"
-              value={editFormData.name}
+              value={editFormData.business_name}
               onChange={(e) => setEditFormData(e.target.value)}
             />
           </td>
@@ -36,9 +36,9 @@ const EnterpriseEditableRow = ({
               type="text"
               required="required"
               placeholder="Enter a location..."
-              name="location"
+              name="address"
               size="10"
-              value={editFormData.location}
+              value={editFormData.address}
               onChange={(e) => setEditFormData(e.target.value)}
             />
           </td>
@@ -47,6 +47,17 @@ const EnterpriseEditableRow = ({
               type="text"
               required="required"
               placeholder="Enter a phone number..."
+              name="physical_location"
+              size="10"
+              value={editFormData.physical_location}
+              onChange={(e) => setEditFormData(e.target.value)}
+            />
+          </td>
+          <td className="py-3 px-2 text-left">
+            <input
+              type="text"
+              required="required"
+              placeholder="Enter an email..."
               name="phone"
               size="10"
               value={editFormData.phone}

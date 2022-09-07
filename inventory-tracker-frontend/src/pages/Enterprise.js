@@ -1,4 +1,5 @@
 import React from 'react';
+import EnterpriseTable from '../components/Enterprise/EnterpriseTable';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
@@ -31,6 +32,7 @@ const Enterprise = () => {
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
           <Navbar />
           <div>
+          <EnterpriseTable/>
 
           </div>
         </div>

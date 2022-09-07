@@ -4,7 +4,7 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const clientsUrl = "http://localhost:9292/clients";
-  const enterprisesUrl = "";
+  const enterprisesUrl = "http://localhost:9292/enterprises";
   const computersUrl = "";
   const printersUrl = "";
   const manufacturersUrl = "";
@@ -18,6 +18,7 @@ export const ContextProvider = ({ children }) => {
   const [screenSize, setScreenSize] = useState(undefined);
   const [search, setSearch] = useState("");
   const [editClientId, setEditClientId] = useState(null);
+  const [editEnterpriseId, setEditEnterpriseId] = useState(null);
 
   useEffect(() => {
     fetch(clientsUrl)
@@ -50,7 +51,6 @@ export const ContextProvider = ({ children }) => {
       .then((manufacturer) => setManufacturers(manufacturer));
   }, []);
 
-  const client = clients.map((client) => client.id)
 
   return (
     <StateContext.Provider
@@ -64,7 +64,6 @@ export const ContextProvider = ({ children }) => {
         computersUrl,
         printersUrl,
         manufacturersUrl,
-        client,
         clients,
         setClients,
         enterprises,
@@ -78,7 +77,10 @@ export const ContextProvider = ({ children }) => {
         search,
         setSearch,
         editClientId,
-        setEditClientId
+        setEditClientId,
+        editEnterpriseId,
+        setEditEnterpriseId
+
       }}
     >
       {children}
