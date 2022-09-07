@@ -4,13 +4,13 @@ const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
   const clientsUrl = "http://localhost:9292/clients";
-  const businessEntitiesUrl = "";
+  const enterprisesUrl = "";
   const computersUrl = "";
   const printersUrl = "";
   const manufacturersUrl = "";
 
   const [clients, setClients] = useState([]);
-  const [businessEntities, setBusinessEntities] = useState([]);
+  const [enterprises, setEnterprises] = useState([]);
   const [computers, setComputers] = useState([]);
   const [printers, setPrinters] = useState([]);
   const [manufacturers, setManufacturers] = useState([]);
@@ -27,7 +27,7 @@ export const ContextProvider = ({ children }) => {
   }, []);
   
   useEffect(() => {
-    fetch(businessEntitiesUrl)
+    fetch(enterprisesUrl)
       .then((res) => res.json())
       .then((business) => setBusinessEntities(business));
   }, []);
@@ -60,15 +60,15 @@ export const ContextProvider = ({ children }) => {
         screenSize,
         setScreenSize,
         clientsUrl,
-        businessEntitiesUrl,
+        enterprisesUrl,
         computersUrl,
         printersUrl,
         manufacturersUrl,
         client,
         clients,
         setClients,
-        businessEntities,
-        setBusinessEntities,
+        enterprises,
+        setEnterprises,
         printers,
         setPrinters,
         computers,
