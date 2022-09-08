@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const StateContext = createContext();
 
@@ -24,35 +25,75 @@ export const ContextProvider = ({ children }) => {
   const [editPrinterId, setEditPrinterId] = useState(null);
   
 
-  useEffect(() => {
-    fetch(clientsUrl)
-      .then((res) => res.json())
-      .then((clients) => setClients(clients))
-      .catch(e=>console.log(e));
+ useEffect(() => {
+    const getClients = async () => {
+      try {
+        const response = await axios.get(clientsUrl);
+        console.log(response);
+        const clientsData = response.data;
+        setClients(clientsData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getClients();
   }, []);
-  
+
+
   useEffect(() => {
-    fetch(enterprisesUrl)
-      .then((res) => res.json())
-      .then((business) => setEnterprises(business));
+    const getEnterprises = async () => {
+      try {
+        const response = await axios.get(enterprisesUrl);
+        console.log(response);
+        const enterprisesData = response.data;
+        setEnterprises(enterprisesData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getEnterprises();
   }, []);
 
   useEffect(() => {
-    fetch(computersUrl)
-      .then((res) => res.json())
-      .then((computer) => setComputers(computer));
+    const getComputers = async () => {
+      try {
+        const response = await axios.get(computersUrl);
+        console.log(response);
+        const computersData = response.data;
+        setComputers(computersData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getComputers();
   }, []);
 
   useEffect(() => {
-    fetch(printersUrl)
-      .then((res) => res.json())
-      .then((printer) => setPrinters(printer));
+    const getPrinters = async () => {
+      try {
+        const response = await axios.get(printersUrl);
+        console.log(response);
+        const printersData = response.data;
+        setPrinters(printersData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getPrinters();
   }, []);
 
   useEffect(() => {
-    fetch(manufacturersUrl)
-      .then((res) => res.json())
-      .then((manufacturer) => setManufacturers(manufacturer));
+    const getManufacturers = async () => {
+      try {
+        const response = await axios.get(manufacturersUrl);
+        console.log(response);
+        const manufacturersData = response.data;
+        setManufacturers(manufacturersData);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getManufacturers();
   }, []);
 
 
