@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/images/logoicon.png"
+import logo from "../assets/images/logosupplylync.png"
 import { Link, useNavigate } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
 
@@ -30,17 +30,17 @@ const Signin = () => {
             style={{
               backgroundImage:
                 "url(" +
-                "https://images.unsplash.com/photo-1560440021-33f9b867899d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=659&q=80" +
+                "https://images.unsplash.com/photo-1585585039170-34fa687fb331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80" +
                 ")",
             }}
           ></div>
 
-          <div className="w-full lg:w-1/2 bg-[#E62953] p-5 rounded-lg lg:rounded-l-none">
+          <div className="w-full lg:w-1/2 bg-[#130026] p-5 rounded-lg lg:rounded-l-none">
             <div className="px-8 mb-4">
               <div className="max-w-[700px] mx-auto my-8 p-4">
                 <div>
                 <div className="pb-10 flex">
-                <img src={logo} alt="valfo" className="mr-6 w-5 h-5" /> <span className="font-bold text-xl ">Valfo</span>
+                <img src={logo} alt="valfo" width={200} height={200} className="mr-6" /> 
 
                 </div>
                   
@@ -71,7 +71,7 @@ const Signin = () => {
                       type="password"
                     />
                   </div>
-                  <button className="border border-white bg-white hover:bg-white w-full p-4 my-2 text-black font-bold rounded">
+                  <button className="border border-[#F05AF6]  bg-[#F05AF6]  hover:bg-white w-full p-4 my-2 text-black font-bold rounded">
                     Sign In
                   </button>
                 </form>

@@ -29,6 +29,16 @@ export const links = [
         }
       ],
     },
+    
+    {
+      title: 'Distributor',
+      links: [
+        {
+          name: 'Manufacturers',
+          icon: <BsDistributeVertical  />,
+        }
+      ],
+    },
   
     {
       title: 'Electronics',
@@ -43,13 +53,5 @@ export const links = [
         }
       ],
     },
-    {
-        title: 'Distributor',
-        links: [
-          {
-            name: 'Manufacturers',
-            icon: <BsDistributeVertical  />,
-          }
-        ],
-      },
+  
 ]
