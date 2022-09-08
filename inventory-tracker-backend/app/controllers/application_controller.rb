@@ -70,8 +70,15 @@ class ApplicationController < Sinatra::Base
 
   post "/computers" do
     new_computer = Computer.create(
-      body: params[:body],
-      username: params[:username],
+      model: params[:model],
+      core: params[:core],
+      disk_space: params[:disk_space],
+      ram: params[:ram],
+      lease_terms: params[:lease_terms],
+      payment_per_month: params[:payment_per_month],
+      purchase_price: params[:purchase_price],
+      condition: params[:condition],
+      client_id: params[:client_id],
 
     )
 
@@ -80,7 +87,17 @@ class ApplicationController < Sinatra::Base
 
   patch "/computers/:id" do
     computer = Computer.find(params[:id])
-    computer.update(body: params[:body])
+    computer.update(
+      model: params[:model],
+      core: params[:core],
+      disk_space: params[:disk_space],
+      ram: params[:ram],
+      lease_terms: params[:lease_terms],
+      payment_per_month: params[:payment_per_month],
+      purchase_price: params[:purchase_price],
+      condition: params[:condition],
+      client_id: params[:client_id],
+    )
     computer.to_json
   end
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
+import PrinterTable from '../components/printers/PrinterTable';
 import Sidebar from "../components/Sidebar";
 
 import { useStateContext } from "../context/ContextProvider";
@@ -31,6 +32,8 @@ const Printers = () => {
         <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full">
           <Navbar />
           <div>
+
+          <PrinterTable />
 
           </div>
         </div>

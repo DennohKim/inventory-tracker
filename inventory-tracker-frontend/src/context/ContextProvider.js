@@ -5,8 +5,8 @@ const StateContext = createContext();
 export const ContextProvider = ({ children }) => {
   const clientsUrl = "http://localhost:9292/clients";
   const enterprisesUrl = "http://localhost:9292/enterprises";
-  const computersUrl = "";
-  const printersUrl = "";
+  const computersUrl = "http://localhost:9292/computers";
+  const printersUrl = "http://localhost:9292/printers";
   const manufacturersUrl = "http://localhost:9292/manufacturers";
 
   const [clients, setClients] = useState([]);
