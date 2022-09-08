@@ -88,7 +88,7 @@ const ClientTableRow = () => {
               <form onSubmit={handleFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
-                    <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <tr className="bg-[#FDBFFF] text-[#130026]  uppercase text-sm leading-normal">
                       <th className="py-3 px-6 text-left">Id</th>
                       <th className="py-3 px-6 text-left">Full name</th>
                       <th className="py-3 px-6 text-left">Location</th>
@@ -99,7 +99,7 @@ const ClientTableRow = () => {
                       <th className="py-3 px-6 text-center">Actions</th>
                     </tr>
                   </thead>
-                  <tbody className="text-gray-600 text-sm font-light">
+                  <tbody className="text-[#130026]  text-sm font-light">
                     {clients.map((client) => (
                       <>
                         {editClientId === client.id ? (

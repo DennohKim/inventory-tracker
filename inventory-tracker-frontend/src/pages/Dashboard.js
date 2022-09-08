@@ -1,9 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { BiLandscape } from "react-icons/bi";
-import { BiHome } from "react-icons/bi";
-import { TbBuildingStore } from "react-icons/tb";
+import { BiPrinter } from "react-icons/bi";
+import { BsDistributeVertical } from "react-icons/bs";
+import { MdComputer, MdOutlineBusinessCenter } from "react-icons/md";
+import { HiOutlineUserGroup } from "react-icons/hi";
 
 import { useStateContext } from "../context/ContextProvider";
 
@@ -37,49 +38,49 @@ const Dashboard = () => {
             {/* <h1 className="px-12 mx-auto font-bold "></h1> */}
 
             <div className="px-12 mx-auto my-4 grid grid-cols-3 gap-8">
-              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+              <div className="px-4 py-2 bg-[#FDBFFF]/[0.3] rounded flex justify-between hover:bg-[#130026] hover:text-[#F05AF6]">
                 <div>
-                  <p className="pb-3 text-gray-600">Clients</p>
+                  <p className="pb-3 text-gray-600 hover:text-[#F05AF6]">Clients</p>
                   <p className="font-bold text-4xl ">{clients.length}</p>
                 </div>
                 <div className="w-2/6" >
-                  <BiLandscape className="w-full fill-slate-600 hover:fill-white group-hover:stroke-white" size={40}/>
+                  <HiOutlineUserGroup className="w-full hover:fill-[#F05AF6] group-hover:stroke-white" size={40}/>
                 </div>
               </div>
-              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+              <div className="px-4 py-2 bg-[#FDBFFF]/[0.3] rounded flex justify-between hover:bg-[#130026] hover:text-[#F05AF6]">
                 <div>
-                  <p className="pb-3 text-gray-600">Enterprises</p>
+                  <p className="pb-3 text-gray-600 hover:text-[#F05AF6]">Enterprises</p>
                   <p className="font-bold text-4xl">{enterprises.length}</p>
                 </div>
                 <div className="w-2/6">
-                  <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />
+                  <MdOutlineBusinessCenter className="w-full outline-slate-600 hover:fill-[#F05AF6]" size={40} />
                 </div>
               </div>
-              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+              <div className="px-4 py-2 bg-[#FDBFFF]/[0.3] rounded flex justify-between hover:bg-[#130026] hover:text-[#F05AF6]">
                 <div>
-                  <p className="pb-3 text-gray-600">Printers</p>
+                  <p className="pb-3 text-gray-600 hover:text-[#F05AF6]">Printers</p>
                   <p className="font-bold text-4xl">{printers.length}</p>
                 </div>
                 <div  className="w-2/6" >
-                  <TbBuildingStore className="w-full outline-slate-200 " size={40}/>
+                  <BiPrinter className="w-full outline-slate-200 hover:fill-[#F05AF6]" size={40}/>
                 </div>
               </div>
-              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+              <div className="px-4 py-2 bg-[#FDBFFF]/[0.3] rounded flex justify-between hover:bg-[#130026] hover:text-[#F05AF6]">
                 <div>
-                  <p className="pb-3 text-gray-600">Computers</p>
+                  <p className="pb-3 text-gray-600 hover:text-[#F05AF6]">Computers</p>
                   <p className="font-bold text-4xl">{computers.length}</p>
                 </div>
                 <div className="w-2/6">
-                  <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />
+                  <MdComputer className="w-full outline-slate-600 hover:fill-[#F05AF6]" size={40} />
                 </div>
               </div>
-              <div className="px-4 py-2 bg-slate-200 rounded flex justify-between hover:bg-[#E62953] hover:text-white">
+              <div className="px-4 py-2 bg-[#FDBFFF]/[0.3] rounded flex justify-between hover:bg-[#130026] hover:text-[#F05AF6]">
                 <div>
-                  <p className="pb-3 text-gray-600">Manufacturers</p>
+                  <p className="pb-3 text-gray-600 hover:text-[#F05AF6]">Manufacturers</p>
                   <p className="font-bold text-4xl">{manufacturers.length}</p>
                 </div>
                 <div className="w-2/6">
-                  <BiHome className="w-full fill-slate-600 hover:fill-white" size={40} />
+                  <BsDistributeVertical className="w-full outline-slate-600 hover:fill-[#F05AF6]" size={40} />
                 </div>
               </div>
             </div>

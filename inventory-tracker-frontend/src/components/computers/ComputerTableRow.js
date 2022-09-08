@@ -101,7 +101,7 @@ const ComputerTableRow = () => {
               <form onSubmit={handleFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
-                    <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
+                    <tr className="bg-[#FDBFFF] text-[#130026] uppercase text-sm leading-normal">
                       <th className="py-3 px-6 text-left">Id</th>
                       <th className="py-3 px-6 text-left">Model</th>
                       <th className="py-3 px-6 text-left">Core</th>

@@ -181,7 +181,7 @@ const PrinterForm = () => {
               </div>
               <div className="flex items-center justify-between">
                 <input
-                  className="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-pointer"
+                  className="bg-[#130026] hover:bg-[#130026] text-[#F05AF6] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-pointer"
                   id="submit"
                   value="Add Printer"
                   type="submit"

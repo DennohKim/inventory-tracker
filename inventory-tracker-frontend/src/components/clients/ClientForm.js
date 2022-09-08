@@ -74,7 +74,7 @@ const ClientForm = () => {
                     <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="email" value={formData.email} onChange={handleChange} type="text" placeholder="you@example.com"/>
                   </div>
                   <div className="flex items-center justify-between">
-                  <input className="bg-[#E62953] hover:bg-[#FF2354] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-pointer" id="submit" value="Add Client" type="submit"/>
+                  <input className="bg-[#130026] hover:bg-[#130026] text-[#F05AF6] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-pointer" id="submit" value="Add Client" type="submit"/>
                 </div>
                 </div>
               </form>

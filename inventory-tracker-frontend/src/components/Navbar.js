@@ -46,7 +46,7 @@ const Navbar = () => {
             customFunc={() =>
               setActiveMenu((activeMenu) => !activeMenu)
             }
-            color="#E62953"
+            color="#130026"
             icon={<AiOutlineMenu />}
           />
         }
@@ -58,7 +58,7 @@ const Navbar = () => {
           <p className="text-base text-gray-600 ">User Email: {user && user.email}</p>
         </div>
 
-        <button onClick={handleLogout} className="border-2 border-[#E62953] text-[#E62953] hover:bg-[#E62953] hover:text-white rounded px-6 py-2 my-4">
+        <button onClick={handleLogout} className="border-2 border-[#F05AF6] text-[#130026] hover:bg-[#F05AF6] hover:text-[#130026] rounded px-6 py-2 my-4">
           Logout
         </button>
       </div>
