@@ -77,10 +77,10 @@ const ClientReadOnlyRow = ({ client, handleEditClick}) => {
                     </td> */}
         <td className="py-3 px-2 text-center">
           <div className="flex item-center justify-center">
-            <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+            <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
               <BiEdit onClick={(event) => handleEditClick(event, client)} />
             </div>
-            <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110">
+            <div className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer">
               <AiOutlineDelete onClick={handleDeleteClick} />
             </div>
           </div>
