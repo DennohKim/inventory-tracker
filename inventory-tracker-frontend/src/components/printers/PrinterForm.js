@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStateContext } from "../../context/ContextProvider";
 
 const PrinterForm = () => {
-  const { printersUrl } = useStateContext();
+  const { printersUrl, manufacturers, enterprises } = useStateContext();
 
   const [formData, setFormData] = useState({
     model: "",
@@ -154,14 +154,24 @@ const PrinterForm = () => {
                 >
                   Enterprise
                 </label>
-                <input
+                {/* <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="condition"
                   value={formData.enterprise_id}
                   onChange={handleChange}
                   type="number"
                   placeholder=""
-                />
+                /> */}
+                <select
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={handleChange}
+                >
+                  {enterprises.map(function (enterprise) {
+                    return (
+                      <option value={enterprise.enterprise_id}>{enterprise.business_name}</option>
+                    );
+                  })}
+              </select>
               </div>
               <div className="mb-4">
                 <label
@@ -170,14 +180,24 @@ const PrinterForm = () => {
                 >
                   Manufacturer
                 </label>
-                <input
+                {/* <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="condition"
                   value={formData.manufacturer_id}
                   onChange={handleChange}
                   type="number"
                   placeholder=""
-                />
+                /> */}
+                <select
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={handleChange}
+                >
+                  {manufacturers.map(function (manufacturer) {
+                    return (
+                      <option value={manufacturer.manufacturer_id}>{manufacturer.company_name}</option>
+                    );
+                  })}
+              </select>
               </div>
               <div className="flex items-center justify-between">
                 <input

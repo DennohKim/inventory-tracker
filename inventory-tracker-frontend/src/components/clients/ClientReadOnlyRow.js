@@ -20,7 +20,7 @@ const ClientReadOnlyRow = ({ client, handleEditClick}) => {
 
     })
     .then(response => response.json())
-    .then(() => handleClientDelete()
+    .then(() => handleClientDelete(id)
   
   )}
 

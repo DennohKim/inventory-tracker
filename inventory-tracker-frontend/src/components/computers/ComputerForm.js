@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStateContext } from "../../context/ContextProvider";
 
 const ComputerForm = () => {
-  const { ComputersUrl } = useStateContext();
+  const { ComputersUrl, clients } = useStateContext();
 
   const [formData, setFormData] = useState({
     model: "",
@@ -206,14 +206,24 @@ const ComputerForm = () => {
                 >
                   Client
                 </label>
-                <input
+                {/* <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="condition"
                   value={formData.client_id}
                   onChange={handleChange}
                   type="number"
                   placeholder=""
-                />
+                /> */}
+                <select
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  onChange={handleChange}
+                >
+                  {clients.map(function (client) {
+                    return (
+                      <option value={client.client_id}>{client.name}</option>
+                    );
+                  })}
+                </select>
               </div>
               <div className="flex items-center justify-between">
                 <input

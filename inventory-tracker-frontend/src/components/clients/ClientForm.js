@@ -4,7 +4,7 @@ import { useStateContext } from '../../context/ContextProvider';
 
 const ClientForm = () => {
 
-  const{ clientsUrl } = useStateContext();
+  const{ clientsUrl, clients, setClients } = useStateContext();
 
   const [formData, setFormData ] = useState({
     name: "",
@@ -14,6 +14,10 @@ const ClientForm = () => {
    
 
   });
+
+  function handleAddClient(newClient){
+    setClients([...clients, newClient]);
+  }
 
   function handleChange(event){
     event.preventDefault();
@@ -39,7 +43,7 @@ const ClientForm = () => {
     })
     .then(response => response.json())
     .then(newClient => {
-      console.log(newClient)
+      handleAddClient(newClient)
       setFormData({...formData,  name: "", location: "", phone:"", email:""})
     })
   }
