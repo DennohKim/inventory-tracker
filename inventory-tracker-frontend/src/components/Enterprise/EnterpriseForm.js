@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStateContext } from "../../context/ContextProvider";
 
 const EnterpriseForm = () => {
-  const { enterprisesUrl } = useStateContext();
+  const { enterprisesUrl, enterprises, setEnterprises } = useStateContext();
 
   const [formData, setFormData] = useState({
     id: "",
@@ -12,6 +12,10 @@ const EnterpriseForm = () => {
     phone: "",
     email: "",
   });
+
+  function handleAddEnterprises(newEnterprise){
+    setEnterprises([...enterprises, newEnterprise]);
+  }
 
   function handleChange(event) {
     event.preventDefault();
@@ -38,7 +42,7 @@ const EnterpriseForm = () => {
     })
       .then((response) => response.json())
       .then((newEnterprise) => {
-        console.log(newEnterprise);
+        handleAddEnterprises(newEnterprise);
         setFormData({
           ...formData,
           business_name: "",

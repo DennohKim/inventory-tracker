@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStateContext } from "../../context/ContextProvider";
 
 const ComputerForm = () => {
-  const { ComputersUrl, clients } = useStateContext();
+  const { computersUrl, computers,clients, setComputers } = useStateContext();
 
   const [formData, setFormData] = useState({
     model: "",
@@ -14,6 +14,10 @@ const ComputerForm = () => {
     condition: "",
     client_id: "",
   });
+
+  function handleAddComputers(newComputer){
+    setComputers([...computers, newComputer]);
+  }
 
   function handleChange(event) {
     event.preventDefault();
@@ -35,7 +39,7 @@ const ComputerForm = () => {
       client_id: formData.client_id,
     };
 
-    fetch(ComputersUrl, {
+    fetch(computersUrl, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -44,12 +48,13 @@ const ComputerForm = () => {
     })
       .then((response) => response.json())
       .then((newComputer) => {
-        console.log(newComputer);
+        handleAddComputers(newComputer);
         setFormData({
           ...formData,
           model: "",
           core: "",
           disk_space: "",
+          ram: "",
           lease_terms: "",
           payment_per_month: "",
           purchase_price: "",
@@ -109,7 +114,7 @@ const ComputerForm = () => {
                 </label>
                 <input
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  name="phone"
+                  name="disk_space"
                   value={formData.disk_space}
                   onChange={handleChange}
                   type="string"
@@ -220,7 +225,7 @@ const ComputerForm = () => {
                 >
                   {clients.map(function (client) {
                     return (
-                      <option value={client.client_id}>{client.name}</option>
+                      <option value={formData.client_id}>{client.name}</option>
                     );
                   })}
                 </select>

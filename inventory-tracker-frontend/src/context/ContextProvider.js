@@ -24,12 +24,12 @@ export const ContextProvider = ({ children }) => {
   const [editComputerId, setEditComputerId] = useState(null);
   const [editPrinterId, setEditPrinterId] = useState(null);
   
+  
 
  useEffect(() => {
     const getClients = async () => {
       try {
         const response = await axios.get(clientsUrl);
-        console.log(response);
         const clientsData = response.data;
         setClients(clientsData);
       } catch (error) {
@@ -44,7 +44,6 @@ export const ContextProvider = ({ children }) => {
     const getEnterprises = async () => {
       try {
         const response = await axios.get(enterprisesUrl);
-        console.log(response);
         const enterprisesData = response.data;
         setEnterprises(enterprisesData);
       } catch (error) {
@@ -58,7 +57,6 @@ export const ContextProvider = ({ children }) => {
     const getComputers = async () => {
       try {
         const response = await axios.get(computersUrl);
-        console.log(response);
         const computersData = response.data;
         setComputers(computersData);
       } catch (error) {
@@ -72,7 +70,6 @@ export const ContextProvider = ({ children }) => {
     const getPrinters = async () => {
       try {
         const response = await axios.get(printersUrl);
-        console.log(response);
         const printersData = response.data;
         setPrinters(printersData);
       } catch (error) {
@@ -86,7 +83,6 @@ export const ContextProvider = ({ children }) => {
     const getManufacturers = async () => {
       try {
         const response = await axios.get(manufacturersUrl);
-        console.log(response);
         const manufacturersData = response.data;
         setManufacturers(manufacturersData);
       } catch (error) {
@@ -130,7 +126,8 @@ export const ContextProvider = ({ children }) => {
         editComputerId,
         setEditComputerId,
         editPrinterId,
-        setEditPrinterId
+        setEditPrinterId,
+       
 
       }}
     >

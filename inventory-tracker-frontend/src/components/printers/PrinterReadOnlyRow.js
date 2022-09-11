@@ -27,7 +27,7 @@ const PrinterReadOnlyRow = ({ printer, handleEditClick }) => {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then(() => handlePrinterDelete());
+      .then(() => handlePrinterDelete(id));
   }
 
   return (

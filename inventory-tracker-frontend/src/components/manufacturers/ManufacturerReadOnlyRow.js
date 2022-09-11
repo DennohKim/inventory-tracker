@@ -20,7 +20,7 @@ const ManufacturerReadOnlyRow = ({ manufacturer, handleEditClick}) => {
 
     })
     .then(response => response.json())
-    .then(() => handleManufacturerDelete()
+    .then(() => handleManufacturerDelete(id)
   
   )}
 

@@ -12,7 +12,9 @@ const ClientTableRow = () => {
     clientsUrl,
     search,
     setSearch,
+    
   } = useStateContext();
+
 
   const [editFormData, setEditFormData] = useState({
     id: "",
@@ -39,10 +41,11 @@ const ClientTableRow = () => {
     setEditClientId(null);
   };
 
-  function handleUpdateFormData(formValues) {
+  function handleUpdateFormData(formValuesObj) {
+  
     const updatedFormValues = clients.map((client) => {
-      if (client.id === formValues.id) {
-        return formValues;
+      if (client.id === formValuesObj.id) {
+        return formValuesObj;
       } else {
         return client;
       }
@@ -50,7 +53,8 @@ const ClientTableRow = () => {
     setClients(updatedFormValues);
   }
 
-  function handleFormSubmit(e) {
+
+  function handleEditFormSubmit(e) {
     e.preventDefault();
 
     const editClientForm = {
@@ -60,22 +64,21 @@ const ClientTableRow = () => {
       email: editFormData.email,
     };
 
-    const handleUpdateFetch = () => {
-      clients.map((client) => {
-        return fetch(`${clientsUrl}/${client.id}`, {
+    const handleUpdateRequest = () => {
+      clients.map(async (client) => {
+        const response = await fetch(`${clientsUrl}/${client.id}`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(editClientForm),
-        })
-          .then((response) => response.json())
-          .then((updatedClient) => {
-            handleUpdateFormData(updatedClient);
-          });
+        });
+        const updatedClient = await response.json();
+        handleUpdateFormData(updatedClient);
+        return updatedClient;
       });
     };
-    handleUpdateFetch();
+    handleUpdateRequest();
   }
 
   function handleSearchChange(event) {
@@ -100,7 +103,7 @@ const ClientTableRow = () => {
                   onChange={handleSearchChange}
                 />
               </div>
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleEditFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
                     <tr className="bg-[#FDBFFF] text-[#130026]  uppercase text-sm leading-normal">
@@ -117,15 +120,18 @@ const ClientTableRow = () => {
                   <tbody className="text-[#130026]  text-sm font-light">
                     {clientListToDisplay.map((client) => (
                       <>
-                        {editClientId === client.id ? (
+                        {editClientId === client.id? (
                           <ClientEditableRow
                             key={client.id}
                             editFormData={editFormData}
                             setEditFormData={setEditFormData}
                             handleCancelClick={handleCancelClick}
+                           
+                      
                           />
-                        ) : (
+                        ) : ( 
                           <ClientReadOnlyRow
+                            key={client.id}
                             client={client}
                             handleEditClick={handleEditClick}
                           />

@@ -9,8 +9,12 @@ class ApplicationController < Sinatra::Base
 
   post "/printers" do
     new_printer = Printer.create(
-      body: params[:body],
-      username: params[:username],
+      model: params[:model],
+      lease_terms: params[:lease_terms],
+      payment_per_month: params[:payment_per_month],
+      purchase_price: params[:purchase_price],
+      condition: params[:condition],
+      enterprise_id: params[:enterprise_id],
 
     )
 
@@ -19,7 +23,14 @@ class ApplicationController < Sinatra::Base
 
   patch "/printers/:id" do
     printer = Printer.find(params[:id])
-    printer.update(body: params[:body])
+    printer.update(
+      model: params[:model],
+      lease_terms: params[:lease_terms],
+      payment_per_month: params[:payment_per_month],
+      purchase_price: params[:purchase_price],
+      condition: params[:condition],
+      enterprise_id: params[:enterprise_id],
+    )
     printer.to_json
   end
 

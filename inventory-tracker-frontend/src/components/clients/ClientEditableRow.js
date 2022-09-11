@@ -6,6 +6,7 @@ const ClientEditableRow = ({
   editFormData,
   setEditFormData,
   handleCancelClick,
+
 }) => {
   return (
     <>
@@ -69,6 +70,7 @@ const ClientEditableRow = ({
               <button
                 type="submit"
                 className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer"
+                value="Save"
               >
                 <HiOutlineSave />
               </button>

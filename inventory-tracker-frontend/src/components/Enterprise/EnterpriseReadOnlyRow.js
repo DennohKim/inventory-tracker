@@ -23,7 +23,7 @@ const EnterpriseReadOnlyRow = ({ enterprise, handleEditClick }) => {
       method: "DELETE",
     })
       .then((response) => response.json())
-      .then(() => handleEnterpriseDelete());
+      .then(() => handleEnterpriseDelete(id));
   }
 
   return (

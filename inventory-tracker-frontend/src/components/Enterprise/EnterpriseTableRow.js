@@ -8,8 +8,6 @@ const EnterpriseTableRow = () => {
     useStateContext();
   
     
-
-
   const [editFormData, setEditFormData] = useState({
     id: "",
     business_name: "",

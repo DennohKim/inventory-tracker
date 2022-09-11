@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStateContext } from "../../context/ContextProvider";
 
 const PrinterForm = () => {
-  const { printersUrl, manufacturers, enterprises } = useStateContext();
+  const { printersUrl, manufacturers, enterprises, printers, setPrinters } = useStateContext();
 
   const [formData, setFormData] = useState({
     model: "",
@@ -13,6 +13,10 @@ const PrinterForm = () => {
     enterprise_id: "",
     manufacturer_id: "",
   });
+
+  function handleAddPrinters(newPrinter){
+    setPrinters([...printers, newPrinter]);
+  }
 
   function handleChange(event) {
     event.preventDefault();
@@ -41,7 +45,7 @@ const PrinterForm = () => {
     })
       .then((response) => response.json())
       .then((newPrinter) => {
-        console.log(newPrinter);
+        handleAddPrinters(newPrinter);
         setFormData({
           ...formData,
           model: "",
@@ -168,7 +172,7 @@ const PrinterForm = () => {
                 >
                   {enterprises.map(function (enterprise) {
                     return (
-                      <option value={enterprise.enterprise_id}>{enterprise.business_name}</option>
+                      <option value={formData.enterprise_id}>{enterprise.business_name}</option>
                     );
                   })}
               </select>
@@ -194,7 +198,7 @@ const PrinterForm = () => {
                 >
                   {manufacturers.map(function (manufacturer) {
                     return (
-                      <option value={manufacturer.manufacturer_id}>{manufacturer.company_name}</option>
+                      <option value={formData.manufacturer_id}>{manufacturer.company_name}</option>
                     );
                   })}
               </select>

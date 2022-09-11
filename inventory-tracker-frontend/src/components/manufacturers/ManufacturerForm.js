@@ -4,13 +4,19 @@ import { useStateContext } from '../../context/ContextProvider';
 
 const ManufacturerForm = () => {
 
-  const{ manufacturersUrl } = useStateContext();
+  const{ manufacturersUrl, manufacturers, setManufacturers } = useStateContext();
 
   const [formData, setFormData ] = useState({
     company_name: "",
    
 
   });
+
+  
+
+  function handleAddManufacturers(newManufacturer){
+    setManufacturers([...manufacturers, newManufacturer]);
+  }
 
   function handleChange(event){
     event.preventDefault();
@@ -34,7 +40,7 @@ const ManufacturerForm = () => {
     })
     .then(response => response.json())
     .then(newManufacturer => {
-      console.log(newManufacturer)
+      handleAddManufacturers(newManufacturer)
       setFormData({...formData,  company_name: ""})
     })
   }
