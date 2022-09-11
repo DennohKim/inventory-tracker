@@ -4,11 +4,11 @@ import axios from "axios";
 const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const clientsUrl = "http://supplylync.herokuapp.com/clients";
-  const enterprisesUrl = "http://supplylync.herokuapp.com/enterprises";
-  const computersUrl = "http://supplylync.herokuapp.com/computers";
-  const printersUrl = "http://supplylync.herokuapp.com/printers";
-  const manufacturersUrl = "http://supplylync.herokuapp.com/manufacturers";
+  const clientsUrl = "https://supplylync.herokuapp.com/clients";
+  const enterprisesUrl = "https://supplylync.herokuapp.com/enterprises";
+  const computersUrl = "https://supplylync.herokuapp.com/computers";
+  const printersUrl = "https://supplylync.herokuapp.com/printers";
+  const manufacturersUrl = "https://supplylync.herokuapp.com/manufacturers";
 
   const [clients, setClients] = useState([]);
   const [enterprises, setEnterprises] = useState([]);
