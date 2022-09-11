@@ -68,7 +68,7 @@ const ClientEditableRow = ({
           <td className="py-3 px-2 text-center">
             <div className="flex item-center justify-center">
               <button
-                type="submit"
+                // type="submit"
                 className="w-4 mr-2 transform hover:text-purple-500 hover:scale-110 cursor-pointer"
                 value="Save"
               >
