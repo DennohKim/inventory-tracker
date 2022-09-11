@@ -4,7 +4,7 @@ import EnterpriseReadOnlyRow from "./EnterpriseReadOnlyRow";
 import EnterpriseEditableRow from "./EnterpriseEditableRow";
 
 const EnterpriseTableRow = () => {
-  const { enterprises, setEnterprises, editEnterpriseId, setEditEnterpriseId, enterprisesUrl } =
+  const { enterprises, setEnterprises, editEnterpriseId, setEditEnterpriseId, enterprisesUrl, search, setSearch } =
     useStateContext();
   
     
@@ -82,12 +82,28 @@ const EnterpriseTableRow = () => {
    
   }
 
+  function handleSearchChange(event) {
+    setSearch(event.target.value)
+  }
+
+  const enterpriseListToDisplay = enterprises.filter((enterpriseInfo) => enterpriseInfo.business_name.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div>
       <div className="overflow-x-auto">
         <div className="min-w-screen flex items-center justify-center font-sans overflow-hidden">
           <div className="w-11/12">
             <div className="bg-white shadow-md rounded my-6">
+            <div className="flex justify-end">
+                <input
+                  className="w-1/4 border-2 border-gray-300 pl-3 py-2 mb-2 rounded-md"
+                  type="text"
+                  name="search"
+                  placeholder="Search by company name ..."
+                  value={search}
+                  onChange={handleSearchChange}
+                />
+              </div>
               <form onSubmit={handleFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
@@ -98,11 +114,12 @@ const EnterpriseTableRow = () => {
                       <th className="py-3 px-6 text-center">Physical Location</th>
                       <th className="py-3 px-6 text-center">Phone</th>
                       <th className="py-3 px-6 text-center">Email</th>
+                      <th className="py-3 px-6 text-center">Date created</th>
                       <th className="py-3 px-6 text-center">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="text-gray-600 text-sm font-light">
-                    {enterprises.map((enterprise) => (
+                    {enterpriseListToDisplay.map((enterprise) => (
                       <>
                         {editEnterpriseId === enterprise.id ? (
                           <EnterpriseEditableRow

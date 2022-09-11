@@ -6,6 +6,7 @@ class CreateEnterprises < ActiveRecord::Migration[6.1]
       t.string :physical_location
       t.string :phone
       t.string :email
+      t.timestamps
     
     end
   end

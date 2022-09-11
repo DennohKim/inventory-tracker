@@ -4,11 +4,15 @@ import ClientReadOnlyRow from "./ClientReadOnlyRow";
 import ClientEditableRow from "./ClientEditableRow";
 
 const ClientTableRow = () => {
-  const { clients, setClients, editClientId, setEditClientId, clientsUrl } =
-    useStateContext();
-  
-    
-
+  const {
+    clients,
+    setClients,
+    editClientId,
+    setEditClientId,
+    clientsUrl,
+    search,
+    setSearch,
+  } = useStateContext();
 
   const [editFormData, setEditFormData] = useState({
     id: "",
@@ -37,54 +41,65 @@ const ClientTableRow = () => {
 
   function handleUpdateFormData(formValues) {
     const updatedFormValues = clients.map((client) => {
-      if(client.id === formValues.id) {
+      if (client.id === formValues.id) {
         return formValues;
       } else {
         return client;
       }
-    })
-    setClients(updatedFormValues)
+    });
+    setClients(updatedFormValues);
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
 
-    const editClientForm = { 
+    const editClientForm = {
       name: editFormData.name,
       location: editFormData.location,
       phone: editFormData.phone,
-      email: editFormData.email}
-  
+      email: editFormData.email,
+    };
+
     const handleUpdateFetch = () => {
       clients.map((client) => {
-        return (
-          fetch(`${clientsUrl}/${client.id}`, {
-            method: 'PATCH',
-            headers: {
-              "Content-Type": "application/json",
-              
-            },
-            body: JSON.stringify(editClientForm)
-          })
-          .then(response => response.json())
-          .then(updatedClient => {
-            handleUpdateFormData(updatedClient)
-            
-          })
-        )
-      })
-     
-    }
+        return fetch(`${clientsUrl}/${client.id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(editClientForm),
+        })
+          .then((response) => response.json())
+          .then((updatedClient) => {
+            handleUpdateFormData(updatedClient);
+          });
+      });
+    };
     handleUpdateFetch();
-   
   }
+
+  function handleSearchChange(event) {
+    setSearch(event.target.value)
+  }
+
+  const clientListToDisplay = clients.filter((clientsInfo) => clientsInfo.name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div>
       <div className="overflow-x-auto">
         <div className="min-w-screen flex items-center justify-center font-sans overflow-hidden">
           <div className="w-11/12">
-            <div className="bg-white shadow-md rounded my-6">
+            <div className="bg-white shadow-md rounded my-6 ">
+              <div className="flex justify-end">
+                <input
+                  className="w-1/4 border-2 border-gray-300 pl-3 py-2 mb-2 rounded-md"
+                  type="text"
+                  name="search"
+                  placeholder="Search by name ..."
+                  value={search}
+                  onChange={handleSearchChange}
+                />
+              </div>
               <form onSubmit={handleFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
@@ -94,13 +109,13 @@ const ClientTableRow = () => {
                       <th className="py-3 px-6 text-left">Location</th>
                       <th className="py-3 px-6 text-center">Phone</th>
                       <th className="py-3 px-6 text-center">Email</th>
-                      {/* <th className="py-3 px-6 text-center">Created at</th>
-                    <th className="py-3 px-6 text-center">Updated at</th> */}
+                      <th className="py-3 px-6 text-center">Date created</th>
+                    {/* <th className="py-3 px-6 text-center">Updated at</th>  */}
                       <th className="py-3 px-6 text-center">Actions</th>
                     </tr>
                   </thead>
                   <tbody className="text-[#130026]  text-sm font-light">
-                    {clients.map((client) => (
+                    {clientListToDisplay.map((client) => (
                       <>
                         {editClientId === client.id ? (
                           <ClientEditableRow
@@ -113,7 +128,6 @@ const ClientTableRow = () => {
                           <ClientReadOnlyRow
                             client={client}
                             handleEditClick={handleEditClick}
-                            
                           />
                         )}
                       </>

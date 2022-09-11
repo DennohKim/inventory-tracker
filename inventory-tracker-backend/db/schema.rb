@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2022_09_07_081225) do
     t.string "physical_location"
     t.string "phone"
     t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "manufacturers", force: :cascade do |t|

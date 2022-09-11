@@ -4,7 +4,7 @@ import ComputerReadOnlyRow from "./ComputerReadOnlyRow";
 import ComputerEditableRow from "./ComputerEditableRow";
 
 const ComputerTableRow = () => {
-  const { computers, setComputers, editComputerId, setEditComputerId, computersUrl } =
+  const { computers, setComputers, editComputerId, setEditComputerId, computersUrl, search, setSearch } =
     useStateContext();
   
     
@@ -92,12 +92,28 @@ const ComputerTableRow = () => {
    
   }
 
+  function handleSearchChange(event) {
+    setSearch(event.target.value)
+  }
+
+  const computerListToDisplay = computers.filter((computerInfo) => computerInfo.model.toLowerCase().includes(search.toLowerCase()));
+
   return (
     <div>
       <div className="overflow-x-auto">
         <div className="min-w-screen flex items-center justify-center font-sans overflow-hidden">
           <div className="w-11/12">
             <div className="bg-white shadow-md rounded my-6">
+            <div className="flex justify-end">
+                <input
+                  className="w-1/4 border-2 border-gray-300 pl-3 py-2 mb-2 rounded-md"
+                  type="text"
+                  name="search"
+                  placeholder="Search by model ..."
+                  value={search}
+                  onChange={handleSearchChange}
+                />
+              </div>
               <form onSubmit={handleFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
@@ -116,7 +132,7 @@ const ComputerTableRow = () => {
                     </tr>
                   </thead>
                   <tbody className="text-gray-600 text-sm font-light">
-                    {computers.map((computer) => (
+                    {computerListToDisplay.map((computer) => (
                       <>
                         {editComputerId === computer.id ? (
                           <ComputerEditableRow

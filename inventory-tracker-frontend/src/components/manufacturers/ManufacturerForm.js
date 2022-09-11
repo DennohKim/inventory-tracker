@@ -48,7 +48,7 @@ const ManufacturerForm = () => {
                     <label className="flex text-gray-700 text-sm font-bold mb-2" htmlFor="Manufacturers">
                       Company Name
                     </label>
-                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="company_name" value={formData.company_name} onChange={handleChange} type="text" placeholder="Full Name"/>
+                    <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="company_name" value={formData.company_name} onChange={handleChange} type="text" placeholder="Company Name"/>
                   </div>
                   <div className="flex items-center justify-between">
                   <input className="bg-[#130026] hover:bg-[#130026] text-[#F05AF6] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline  cursor-pointer" id="submit" value="Add Manufacturer" type="submit"/>

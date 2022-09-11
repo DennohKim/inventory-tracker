@@ -4,7 +4,7 @@ import ManufacturerReadOnlyRow from "./ManufacturerReadOnlyRow";
 import ManufacturerEditableRow from "./ManufacturerEditableRow";
 
 const ManufacturerTableRow = () => {
-  const { manufacturers, setManufacturers, editManufacturerId, setEditManufacturerId, manufacturersUrl } =
+  const { manufacturers, setManufacturers, editManufacturerId, setEditManufacturerId, manufacturersUrl, search, setSearch } =
     useStateContext();
   
     
@@ -73,6 +73,11 @@ const ManufacturerTableRow = () => {
     handleUpdateFetch();
    
   }
+  function handleSearchChange(event) {
+    setSearch(event.target.value)
+  }
+
+  const manufacturerListToDisplay = manufacturers.filter((manufacturerInfo) => manufacturerInfo.company_name.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <div>
@@ -80,6 +85,16 @@ const ManufacturerTableRow = () => {
         <div className="min-w-screen flex items-center justify-center font-sans overflow-hidden">
           <div className="w-11/12">
             <div className="bg-white shadow-md rounded my-6">
+            <div className="flex justify-end">
+                <input
+                  className="w-1/4 border-2 border-gray-300 pl-3 py-2 mb-2 rounded-md"
+                  type="text"
+                  name="search"
+                  placeholder="Search by company name ..."
+                  value={search}
+                  onChange={handleSearchChange}
+                />
+              </div>
               <form onSubmit={handleFormSubmit}>
                 <table className="min-w-max w-full table-auto">
                   <thead>
@@ -90,7 +105,7 @@ const ManufacturerTableRow = () => {
                     </tr>
                   </thead>
                   <tbody className="text-gray-600 text-sm font-light">
-                    {manufacturers.map((manufacturer) => (
+                    {manufacturerListToDisplay.map((manufacturer) => (
                       <>
                         {editManufacturerId === manufacturer.id ? (
                           <ManufacturerEditableRow

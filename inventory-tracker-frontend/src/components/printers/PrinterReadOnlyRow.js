@@ -48,7 +48,7 @@ const PrinterReadOnlyRow = ({ printer, handleEditClick }) => {
         <td className="py-3 px-2 text-left">
           <div className="flex items-center">
             <div className="mr-2"></div>
-            <span>{lease_terms}</span>
+            <span>{lease_terms} years</span>
           </div>
         </td>
         <td className="py-3 px-2 text-left">

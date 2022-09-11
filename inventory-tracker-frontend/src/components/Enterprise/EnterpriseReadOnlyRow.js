@@ -3,29 +3,30 @@ import { useStateContext } from "../../context/ContextProvider";
 import { BiEdit } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const EnterpriseReadOnlyRow = ({ enterprise, handleEditClick}) => {
-  const { enterprises,setEnterprises, enterprisesUrl} = useStateContext();
+const EnterpriseReadOnlyRow = ({ enterprise, handleEditClick }) => {
+  const { enterprises, setEnterprises, enterprisesUrl } = useStateContext();
 
-  const {id, business_name, address, physical_location, phone, email} = enterprise;
+  const { id, business_name, address, physical_location, phone, email, created_at: createdAt } =
+    enterprise;
 
-  function handleEnterpriseDelete(id){
+  const timestamp = new Date(createdAt).toLocaleTimeString();
 
-    const updatedEnterprises = enterprises.filter((enterprise) => enterprise.id !== id);
+  function handleEnterpriseDelete(id) {
+    const updatedEnterprises = enterprises.filter(
+      (enterprise) => enterprise.id !== id
+    );
     setEnterprises(updatedEnterprises);
   }
 
-  function handleDeleteClick(){
+  function handleDeleteClick() {
     fetch(`${enterprisesUrl}/${id}`, {
-      method: 'DELETE'
-
+      method: "DELETE",
     })
-    .then(response => response.json())
-    .then(() => handleEnterpriseDelete()
-  
-  )}
+      .then((response) => response.json())
+      .then(() => handleEnterpriseDelete());
+  }
 
-
-  return(
+  return (
     <>
       <tr className="border-b border-gray-200 hover:bg-gray-100">
         <td className="py-3 px-2 text-left whitespace-nowrap">
@@ -64,12 +65,12 @@ const EnterpriseReadOnlyRow = ({ enterprise, handleEditClick}) => {
             <span>{email}</span>
           </div>
         </td>
-        {/* <td className="py-3 px-6 text-left">
-                      <div className="flex items-center">
-                        <div className="mr-2"></div>
-                        <span>{created_at}</span>
-                      </div>
-                    </td> */}
+        <td className="py-3 px-6 text-left">
+          <div className="flex items-center">
+            <div className="mr-2"></div>
+            <span>{timestamp}</span>
+          </div>
+        </td>
         {/* <td className="py-3 px-6 text-center">
                       <span className="bg-purple-200 text-purple-600 py-1 px-3 rounded-full text-xs">
                         Active
