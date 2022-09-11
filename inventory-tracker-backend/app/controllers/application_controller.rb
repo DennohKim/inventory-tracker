@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
   patch "/printers/:id" do
     printer = Printer.find(params[:id])
     printer.update(
-      model: params[:model],
+      # model: params[:model],
       lease_terms: params[:lease_terms],
       payment_per_month: params[:payment_per_month],
       purchase_price: params[:purchase_price],
@@ -61,7 +61,7 @@ class ApplicationController < Sinatra::Base
   patch "/clients/:id" do
     client = Client.find(params[:id])
     client.update(name: params[:name],
-                  location: params[:location],
+                  # location: params[:location],
                   phone: params[:phone],
                   email: params[:email])
     client.to_json
@@ -99,7 +99,7 @@ class ApplicationController < Sinatra::Base
   patch "/computers/:id" do
     computer = Computer.find(params[:id])
     computer.update(
-      model: params[:model],
+      # model: params[:model],
       core: params[:core],
       disk_space: params[:disk_space],
       ram: params[:ram],
@@ -140,7 +140,7 @@ class ApplicationController < Sinatra::Base
   patch "/enterprises/:id" do
     enterprises = Enterprise.find(params[:id])
     enterprises.update(
-      business_name: params[:business_name],
+      # business_name: params[:business_name],
       address: params[:address],
       physical_location: params[:physical_location],
       phone: params[:phone],

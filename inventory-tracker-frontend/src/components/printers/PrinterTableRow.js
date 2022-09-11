@@ -109,7 +109,7 @@ const PrinterTableRow = () => {
                   onChange={handleSearchChange}
                 />
               </div>
-              <form onSubmit={handleFormSubmit}>
+              <form>
                 <table className="min-w-max w-full table-auto">
                   <thead>
                     <tr className="bg-[#FDBFFF] text-[#130026] uppercase text-sm leading-normal">
