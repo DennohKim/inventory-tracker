@@ -35,7 +35,7 @@ Users should be able to:
 ## My process
 - Started by designing low fidelity wwireframe of the application based on the user stories.
 
-Figma Design -[supplylync-Application](https://www.figma.com/file/Aycibqlg8MyOG1jUykOD3l/Valfo?node-id=573%3A16)
+Figma Design -[supplylync-Application](https://www.figma.com/file/eC6vJepMrRhNeKD6JD3kdZ/LeapTop)
 
 - Modelled the database using active record. The application uses a one to one association between client and computer as well as a many to many association between enterprises and printers.
 
