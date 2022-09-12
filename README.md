@@ -1,115 +1,103 @@
 # SupplyLync
 
-This is a solution to the [Expenses chart component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/expenses-chart-component-e7yJBUdjwt). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+An inventory tracking application for an electronics supplier that leases computers and printers to clients including businesses.
+
+## Screenshot
+ ![image](./src/assets/images/clients-screen.png)
 
 ## Table of contents
 
 - [Overview](#overview)
   - [User Stories](#user-stories)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+  - [License](#license)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+
 
 ## Overview
+In order to get started, sign up with a dummy email address and password then login with the credentials.
 
 ### User Stories
 
 Users should be able to:
 
-- View the bar chart and hover over the individual bars to see the correct amounts for each day
-- See the current day's bar highlighted in a different colour to the other bars
-- View the optimal layout for the content depending on their device's screen size
-- See hover states for all interactive elements on the page
-- **Bonus**: Use the JSON data file provided to dynamically size the bars on the chart
+- View the individual clients in contact with the business.
+- View the business enterprise in contact with the business.
+- See the electronics from different manufacturers that the clients and the enterprises have leased including the lease terms. 
+- The supplier can create a new cliet, business and electronics.
 
-### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
+- Started by designing low fidelity wwireframe of the application based on the user stories.
+
+Figma Design -[supplylync-Application](https://www.figma.com/file/Aycibqlg8MyOG1jUykOD3l/Valfo?node-id=573%3A16)
+
+- Modelled the database using active record. The application uses a one to one association between client and computer as well as a many to many association between enterprises and printers.
+
+- Built API routes using sinatra.
+
+- Consumed the API's using axios.
+
+- Built the frontend with react.
+
+- Deployed the database to Heroku.
+
+- Deployed the frontend with vercel.
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Sinatra](https://styled-components.com/) - Backend
-- [TailwindCSS](https://styled-components.com/) - For styles
+- React for Frontend Development
+- TailwindCSS
+- Ruby
+- Active Records for Database Modelling
+- Sinatra to build API's
 
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+- Understood the typical file structure for a Sinatra application
+- Use the Rerun gem to help speed up development.
+- Learn deploying a database on Heroku using Heroku stack:20
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+Future developments will be built using Rails so as to support different users.
+Intergrate payments.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
 
-### Useful resources
+## License
+MIT License
+Copyright (c) [2022] [License](LICENSE.txt)
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Dennis Kimathi](https://www.your-site.com)
+- Linkedin - [Dennis Kimathi](https://www.linkedin.com/in/dennis-kimathi-46326711b/)
+- Twitter - [@mbiebuz](https://twitter.com/mbiebuz)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
-## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
