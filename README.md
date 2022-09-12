@@ -3,7 +3,7 @@
 An inventory tracking application for an electronics supplier that leases computers and printers to clients including businesses.
 
 ## Screenshot
- ![image](./src/assets/images/clients-screen.png)
+ ![image](./inventory-tracker-frontend/src/assets/images/clients-screen.png)
 
 ## Table of contents
 
